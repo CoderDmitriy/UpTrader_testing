@@ -1,0 +1,11 @@
+<ul class='nav nav-pills nav-dark w-100 tree'>
+    {% for item in items %}
+        <li class='nav-item  text-center'> <a class='nav-link' href="{{item.link}}"> {{ item.title }}</a>
+        {% if item.has_children %}
+            {% with item.children.all as items %}
+                {% include "menu/tags/menu.html" %}
+            {% endwith %}
+        {% endif %}
+        </li>
+    {% endfor %}
+</ul>
